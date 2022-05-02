@@ -11,7 +11,7 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping(name = "api/")
+@RequestMapping("api/")
 public class Controller {
 
     @Autowired
@@ -22,23 +22,23 @@ public class Controller {
         return service.FindAllPosts();
     }
 
-    @PostMapping
+    @PostMapping("create/post")
     public Post CreatePost(@RequestBody Post post){
         return service.createPost(post);
     }
 
-    @PostMapping
+    @PostMapping("create/comment")
     public Post createComment(@RequestBody Comment comment){
         return service.createComment(comment);
     }
 
-    @DeleteMapping
+    @DeleteMapping("delete/post")
     public void deletePost(@RequestBody Post post){
         service.deletePost(post);
 
     }
 
-    @DeleteMapping
+    @DeleteMapping("delete/comment")
     public void deleteComment(@RequestBody Comment comment){
         service.deleteComment(comment);
     }
